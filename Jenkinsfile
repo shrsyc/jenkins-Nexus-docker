@@ -48,7 +48,7 @@ pipeline{
         stage("run docker container") {
             steps {
                 script {
-                    sh "docker run -d -p 8080:8080 shrsyc/demo_war"
+                    sh "docker run -d -p 8081:8080 shrsyc/demo_war"
                 }
             }
         }
