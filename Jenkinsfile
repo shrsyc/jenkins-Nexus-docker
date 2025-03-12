@@ -24,7 +24,7 @@ pipeline{
             }
         }
 
-        stage("push docker immage to dockerhub") {
+        stage("push docker image to dockerhub") {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     script {
@@ -41,6 +41,14 @@ pipeline{
                                 """
                     }
                             
+                }
+            }
+        }
+
+        stage("run docker container") {
+            steps {
+                script {
+                    sh "docker run -d -p 8080:8080 shrsyc/demo_war"
                 }
             }
         }
