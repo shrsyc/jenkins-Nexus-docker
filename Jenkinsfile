@@ -12,7 +12,7 @@ pipeline{
 
         stage('store artifact in nexus'){
             steps{
-                sh 'mvn -s Settings.xml clean deploy'
+                sh 'mvn -s settings.xml clean deploy'
             }
             post{
                 success{
@@ -24,6 +24,6 @@ pipeline{
             }
         }
 
-        
+
     }
 }
